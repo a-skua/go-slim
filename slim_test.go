@@ -489,7 +489,10 @@ func TestIDAndClass(t *testing.T) {
 		t.Fatal(err)
 	}
 	var buf bytes.Buffer
-	err = tmpl.Execute(&buf, nil)
+	err = tmpl.Execute(&buf, Values{
+		"title": "HELLO, RENDER",
+		"text":  "Hello, Render",
+	})
 	if err != nil {
 		t.Fatal(err)
 	}
